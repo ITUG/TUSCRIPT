@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TUSCRIPT-Kurs</title>
+        <!-- meta information -->
+        <meta name="author" content="Thomas Kollatz" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=1024" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!-- favicons -->
+        <link rel="shortcut icon" href="resources/img/favicon.png" />
+        <link rel="apple-touch-icon" href="resources/img/apple-touch-icon.png" />
+        <!-- CSS reset and grid -->
+        <link href="vendor/normalize/normalize-4.1.1.css" rel="stylesheet" />
+        <link href="vendor/skeleton/skeleton-2.0.4.css" rel="stylesheet" />
+        <!-- fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,600italic,400italic,700italic,800,800italic&amp;subset=latin,latin-ext"
+            rel="stylesheet" type="text/css" />
+        <!-- styles for included libraries -->
+        <!-- unite gallery -->
+        <link rel="stylesheet" href="vendor/unitegallery/css/unite-gallery.css" type="text/css" />
+        <!-- codemirror -->
+        <link rel="stylesheet" href="vendor/codemirror/lib/codemirror.css" />
+        <!-- highlight -->
+        <link rel="stylesheet" href="vendor/highlight/styles/default.css" />
+        <link rel="stylesheet" href="resources/css/hljs.linenumbering.css" />
+        <!-- swiper -->
+        <link rel="stylesheet" href="vendor/swiper/swiper.min.css" />
+        <!-- magnific popup -->
+        <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup-1.1.0.css" />
+        <!-- standard presentation styles -->
+        <link href="resources/css/style.css" rel="stylesheet" />
+        <!-- custom presentation styles -->
+        <link href="resources/css/custom.css" rel="stylesheet" />
+        <!-- hint styles -->
+        <link href="resources/css/hint.css" rel="stylesheet" />
+        <!-- js needed in head -->
+        <!-- greuler -->
+        <script src="vendor/d3/d3-3.5.6.js"></script>
+        <script src="vendor/cola/cola.v3.min.js"></script>
+        <script src="vendor/greuler/greuler-0.5.5.min.js"></script>
+        <!-- html5 dataset shim for IE -->
+        <script src="vendor/impress/html5-dataset.js"></script>
+    </head>
+    <body>
+        <div class="fallback-message">
+            <p> Your browser <strong>doesn't support the features required</strong> by
+                impress.mod.js, so you are presented with a simplified version of this presentation. </p>
+            <p> For the best experience please use the latest <strong>Chrome</strong>,
+                    <strong>Safari</strong> or <strong>Firefox</strong> browser. </p>
+        </div>
+        <div id="impress">
+            <div class="step">
+                <h5><strong>2021-07-09</strong> ZOOM-Universe </h5>
+                <h5>
+                    <strong>
+                        <a href="https://www.itug.de/pages/aktuelles.html">ITUG Jour Fixe 05</a>
+                    </strong>
+                </h5>
+                <h2 class="red down-100">TUSCRIPT</h2>
+                <h3 class=" down-25">Eine Einführung</h3>
+                <h5 class="down-25">Präsentation <a href="https://itug.github.io/TUSCRIPT"
+                    title="View the presentation online"
+                    >https://itug.github.io/TUSCRIPT</a><br />Daten <a
+                    href="https://github.com/ITUG/ITUGJF05"
+                        >https://github.com/ITUG/TUSCRIPT</a><br />Download <a
+                    href="https://github.com/ITUG/ITUGJF05/archive/refs/heads/main.zip"
+                    >Präsentation und Daten</a> (zip)</h5>
+                <h5 class="down-75">
+                    <!--<strong>
+                        <a href="https://orcid.org/0000-0001-5485-7681" target="_blank"
+                            >Wieland Carls</a>
+                    </strong>
+                    <img src="resources/img/Twitter_bird_logo_2012.svg" alt="Twitter"
+                        class="twitter-icon" />
+                    <a href="https://twitter.com/felixf006" title="Wieland Carls on Twitter"
+                        target="_blank">@felixf006</a>
+                    <br />-->
+                    <strong>
+                        <a href="https://orcid.org/0000-0003-1904-1841" target="_blank"
+                            >Thomas Kollatz</a>
+                    </strong>
+                    <!--<a
+                    href="http://www.adwmainz.de/en/digitalitaet/digitale-akademie.html"
+                    target="_blank">Digital
+                    Academy</a>@<a href="http://www.adwmainz.de/en/home.html"
+                    target="_blank">Akademie der Wissenschaften und Literatur | Mainz</a>-->
+                    <img src="resources/img/Twitter_bird_logo_2012.svg" alt="Twitter"
+                        class="twitter-icon" />
+                    <a href="https://twitter.com/kol_t" title="Thomas Kollatz on Twitter"
+                        target="_blank">@kol_t</a>
+                    <br />
+                    <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>
+                </h5>
+            </div>
+            <!-- div.step-->
+            <div class="step">
+                <div class="row">
+                    <div class="six columns">
+                        <dl>
+                            <dt class="red">01</dt>
+                            <dd><a href="#desi">*desi</a></dd>
+                            <dt class="red">02</dt>
+                            <dd><a href="#info">Suche – Hilfe – Handbuch</a></dd>
+                            
+                        </dl>
+                    </div>
+                    <div class="six columns">
+                        <dl>
+                            <dt class="red">Sitzung 01</dt>
+                            <dd><a href="#nr1">Übungsaufgaben</a></dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="step" id="desi">
+                <h2 class="red"><code>*desi</code> TUSTEP-Sitzung einrichten </h2><div class="row">
+                <div class="four columns">
+                <figure class="mfp-lightbox even-left"><a href="resources/img/desi_info.png"><img src="resources/img/desi_info.png" alt="info"></a></figure>
+                    <p class="center">aufrufen</p>
+                </div>
+                <div class="four columns">
+                    <figure class="mfp-lightbox even-left"><a href="resources/img/desi_form.png">
+                        <img src="resources/img/desi_form.png" alt="form"/>
+                    </a></figure>
+                    <p class="center">definieren</p>
+                </div>
+                <div class="four columns">
+                    <figure class="mfp-lightbox even-left"><a href="resources/img/desi_start.png">
+                        <img src="resources/img/desi_start.png" alt="start"/>
+                    </a></figure>
+                    <p class="center">starten</p>
+                </div>
+                    <p class="center"><a href="http://www.tustep.uni-tuebingen.de/inst.html">Installationsanleitungen</a></p>
+            </div>
+                
+            </div>
+            <div class="step" id="info">
+                <h2>Informationsquellen</h2>
+                <h2 class="red">Handbuch</h2>
+                <pre><code>Gib Kommando&gt; *zebe</code></pre>
+                <h2 class="red">suche</h2>
+                <pre><code>Gib Kommando&gt; suche</code></pre>
+                <h2 class="red">hilfe</h2>
+                <pre><code>Gib Kommando&gt; hilfe</code></pre>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                
+            
+            
+            
+				
+            
+            <div class="step" id="nr1">
+                <h2 class="red">Übungsaufgaben Sitzung #1</h2>
+                
+                <blockquote >Ermitteln Sie den Wochentag Ihrer Geburt</blockquote>
+                <blockquote class="substep down-50">Ermitteln Sie wieviele Jahre, Monate, Tage seit Ihrer Geburt vergangen sind</blockquote>
+            </div>
+        </div>
+        <!-- jquery -->
+        <script src="vendor/jquery/jquery-1.11.0.min.js"></script>
+        <!-- unite gallery -->
+        <script src="vendor/unitegallery/js/unitegallery.min.js"></script>
+        <script src="vendor/unitegallery/themes/tiles/ug-theme-tiles.js"></script>
+        <script src="resources/js/unite.gallery.js"></script>
+        <!-- highlight -->
+        <script src="vendor/highlight/highlight.pack-9.3.0.js"></script>
+        <script>
+            hljs.initHighlightingOnLoad();</script>
+        <script src="resources/js/hljs.linenumbering.js"></script>
+        <!-- swiper -->
+        <script src="vendor/swiper/swiper.min.js"></script>
+        <script>
+            var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                paginationClickable: true,
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                spaceBetween: 30,
+                hashnav: true
+            });</script>
+        <!-- magnific popup -->
+        <script src="vendor/magnific-popup/jquery.magnific-popup.min-1.1.0.js"></script>
+        <script src="resources/js/magnific-popup.lightbox.js"></script>
+        <!-- impress.mod.js -->
+        <script src="vendor/impress/impress.fork.js"></script>
+        <script src="vendor/impress/impress-slidenum.js"></script>
+        <script>
+            var obj = impress();
+            obj.init();
+            initSlideNo(obj);</script>
+        <!--<script>
+            var videoStep = document.getElementById("video-step");
+var video = document.getElementById("video");
+videoStep.addEventListener("impress:stepenter", function() {
+    video.play();
+}, false);
+videoStep.addEventListener("impress:stepleave", function() {
+    video.pause();
+}, false);
+        </script>-->
+        <script>
+            var videos = document.getElementsByTagName("video");
+            Array.prototype.forEach.call(videos, function (video) {
+                var videoStep = video.closest(".step");
+                videoStep.addEventListener("impress:stepenter", function () {
+                    video.play();
+                },
+                false);
+                videoStep.addEventListener("impress:stepleave", function () {
+                    video.pause();
+                },
+                false);
+            });</script>
+    </body>
+</html>
