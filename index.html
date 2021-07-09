@@ -109,7 +109,9 @@
                     <div class="six columns">
                         <dl>
                             <dt class="red">Sitzung 01</dt>
-                            <dd><a href="#nr1">Übungsaufgaben</a></dd>
+                            <dd><a href="#list">Funktionen</a></dd>
+                            <dd><a href="#skript">Skript</a></dd>
+                            <dd><a href="#uebung">Übungsaufgaben</a></dd>
                         </dl>
                     </div>
                 </div>
@@ -164,21 +166,80 @@
                 
             
             
-            <div class="step">
-            <h2 class="red" id="nr1">Sitzung 1</h2>
-                <pre><code>PRINT
-TRACE
-CONCAT
-DATE (1|2|3|4)
-DATE (modus,day,month,year,number)
-IF … ELSEIF ELSE ENDIF 
-SPLIT (variable,Trenner,value1,value2,…)
-SELECT (variable,#nummer)
-CREATE (dateiname,dateityp,traeger)
-                </code></pre>
+            <div class="step" id="list">
+            <h2 class="red">Sitzung 1: Funktionen</h2>
+                <ul>
+                    <li>PRINT
+                    <li>TRACE
+                    <li>CONCAT
+                    <li>DATE (1|2|3|4|0)
+                    <li>DATE (modus,day,month,year,number)
+                    <li>IF … ELSEIF ELSE ENDIF 
+                    <li>SPLIT (variable,Trenner,value1,value2,…)
+                    <li>SELECT (variable,#nummer)
+                    <li>STOP
+                </ul>
             </div>
-            
-            <div class="step">
+          <div class="step" id="skript">
+              <h2 class="red">Sitzung 1: Skript 1/4</h2>
+              <pre><code>$$ MODE TUSCRIPT,{}
+TRACE                   
+SET var_string="Ich bin eine Variable"
+var_digit=3
+var_sum=var_digit+2
+variable=CONCAT (var_string,": ",var_sum)</code></pre>
+          </div>
+            <div class="step"><h2 class="red">Sitzung 1: Skript 2/4</h2>
+<pre><code>heute=DATE (4)
+x=SPLIT (heute,"|-|",yyyy,mm,dd)
+tagesnummer=DATE (number,dd,mm,yyyy,nummerheute)
+
+IF (tagesnummer==1) THEN
+ tag="Montag"
+ELSEIF (tagesnummer==2) THEN
+ tag="Dienstag"
+ELSEIF (tagesnummer==3) THEN
+ tag="Mittwoch"
+ELSEIF (tagesnummer==4) THEN
+ tag="Donnerstag" 
+ELSEIF (tagesnummer==5) THEN
+ tag="Freitag"
+ELSEIF (tagesnummer==6) THEN
+ tag="Samstag"
+ELSEIF (tagesnummer==7) THEN
+ tag="Sonntag"
+ELSE
+ tag="Bitte überprüfen"
+  PRINT/ERROR tagesnummer,": ",tag
+  STOP
+ENDIF
+PRINT "Heute ist ",tag</code></pre></div>
+            <div class="step"><h2 class="red">Sitzung 1: Skript 3/4</h2><pre><code>
+geburtstag="1963-10-09"
+x=SPLIT (geburtstag,"|-|",yyyy,mm,dd)
+tagdergeburt=DATE (number,dd,mm,yyyy,nummer)
+
+PRINT tagdergeburt
+
+wochentage=*
+DATA Montag
+DATA Dienstag
+DATA Mittwoch
+DATA Donnerstag
+DATA Freitag
+DATA Samstag
+DATA Sonntag
+
+wochentag=SELECT (wochentage,#tagdergeburt)
+PRINT "Thomas Kollatz wurde am ",dd,".",mm,". ",yyyy," geboren."
+PRINT "Das war ein ",wochentag</code></pre></div>
+            <div class="step"><h2 class="red">Sitzung 1: Skript 4/4</h2>
+                <pre><code>x = DATE (interval,dd,mm,yyyy,nummerheute)
+PRINT "er ist ",dd," Tage alt"
+PRINT mm, " Monate "
+PRINT yyyy, " Jahre "</code></pre>
+          </div>
+            <div class="step" id="uebung">
                 <h2 class="red">Übungsaufgaben Sitzung #1</h2>
                 
                 <blockquote class="substep">Ermitteln Sie den Wochentag Ihrer Geburt</blockquote>
