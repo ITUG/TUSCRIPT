@@ -1,10 +1,10 @@
-# Im- und Export von Tabellenstrukturen
-## Von EXCEL zu TUSTEP und retour
+# TUSCRIPT
+## Eine Einführung
 
 presented by : Thomas Kollatz
 
-presented at : ITUG Jour-Fixe #5
+presented at : 
 
-Zoom 2021-06-30
+Zoom 2021
 
-online: [https://ITUG.github.io/ITUGJF05/](https://ITUG.github.io/ITUGJF05/)
+online: [https://ITUG.github.io/TUSCRIPT/](https://ITUG.github.io/TUSCRIPT/)
