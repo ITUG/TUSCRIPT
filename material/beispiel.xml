@@ -3,7 +3,7 @@
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0">
-  <teiHeader>
+   <teiHeader>
       <fileDesc>
          <titleStmt>
             <title>Übungsdatei für TUSCRIPT-Kurs</title>
@@ -15,21 +15,18 @@
             <p>born digital</p>
          </sourceDesc>
       </fileDesc>
-  </teiHeader>
-  <text>
+   </teiHeader>
+   <text>
       <body>
          <p>Dieser TUSCRIPT-Kurs wurde initiert von der <abbr>ITUG</abbr>, der <orgName>International TUSTEP User Group</orgName>.</p>
          <p>TUSCRIPT ist die leistungsfähige Skriptsprache des Tübinger Systems von Textverarbeitungs-Programmen <abbr>TUSTEP</abbr>.</p>
-         <p>Der vorliegende Beispieltext wurde erstellt für die zweite Sitzung des <rs type="event">Tuscriptkurses</rs>, der am <date when="2021-07-16">16. Juli 2021</date> online abgehalten wird. In dieser Sitzung geht es um <list>
+         <p>Der vorliegende Beispieltext wurde erstellt für die zweite Sitzung des <rs type="event">Tuscriptkurses</rs>, der am <date when="2021-07-16">16. Juli 2021</date> online abgehalten wird. In dieser Sitzung geht es um 
+            <list>
             <item>Dateiverwaltung</item>
             <item>Dateizugriffe</item>
-         </list></p>       
-         <p>In der vorangegangenen <rs type="event"
-            >ersten Sitzung</rs> am <date>9. Juli 2021</date> wurde in das <rs type="item"
-            >Programmieren mit Variablen</rs> eingeführt, sowie einige  <rs type="item"
-            >Skriptfunktionen für Datumsangaben</rs> vorgestellt. </p>
-         <p>Die dritte Sitzung, geplant für den <date when="2021-07-24"
-            >23. Juli</date> wird das bis dahin gelernte wiederholen und weiter vertiefen. </p>
+            </list></p>
+         <p>In der vorangegangenen <rs type="event">ersten Sitzung</rs> am <date>9. Juli 2021</date> wurde in das <rs type="item">Programmieren mit Variablen</rs> eingeführt, sowie einige  <rs type="item">Skriptfunktionen für Datumsangaben</rs> vorgestellt. </p>
+         <p>Die dritte Sitzung, geplant für den <date when="2021-07-23">23. Juli</date> wird das bis dahin gelernte wiederholen und weiter vertiefen. </p>
       </body>
-  </text>
+   </text>
 </TEI>
