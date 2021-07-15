@@ -86,7 +86,7 @@
 
             </div>
             <!-- div.step-->
-            <div class="step">
+            <div class="step" id="toc">
                 <div class="row">
                     <div class="six columns">
                         <dl>
@@ -101,6 +101,10 @@
                             <dt class="red">03</dt>
                             <dd>
                                 <a href="#ed">Editoranweisungen</a>
+                            </dd>
+                            <dt class="red">04</dt>
+                            <dd>
+                                <a href="#modi">MODE</a>
                             </dd>
                         </dl>
                     </div>
@@ -163,6 +167,7 @@
                         <a href="http://www.tustep.uni-tuebingen.de/inst.html"
                             >Installationsanleitungen</a>
                     </p>
+                    <p class="right x-small"><a href="#toc">toc</a></p>
                 </div>
             </div>
             <div class="step" id="info">
@@ -173,8 +178,9 @@
                 <pre><code>Gib Kommando&gt; suche</code></pre>
                 <h2 class="red">hilfe</h2>
                 <pre><code>Gib Kommando&gt; hilfe</code></pre>
+                <p class="right x-small"><a href="#toc">toc</a></p>
             </div>
-            <div class="step">
+            <div class="step" id="ed">
                 <h2 class="red">Editoranweisungen 1/2</h2>
                 <table class="line-height-one-five medium">
                     <tr>
@@ -202,6 +208,7 @@
                         <td>Blättern durch letzte Editoranweisungen</td>
                     </tr>
                 </table>
+                <p class="right x-small"><a href="#toc">toc</a></p>
             </div>
             <div class="step">
                 <h2 class="red">Editoranweisungen 2/2</h2>
@@ -225,6 +232,43 @@
                         <td>retten/speichern eines (Skript)segmentes</td>
                     </tr>
                 </table>
+                <p class="right x-small"><a href="#toc">toc</a></p>
+            </div>
+            <div class="step" id="modi">
+                <h2 class="red">MODI</h2>                
+                <div class="row">
+                    <div class="six columns">
+                        
+                        <pre><code>$$ MODE TUSCRIPT,{}
+wochentage=*
+DATA Montag
+DATA Dienstag
+DATA Mittwoch
+DATA Donnerstag
+DATA Freitag
+DATA Samstag
+DATA Sonntag
+</code></pre>
+                       
+                    </div>
+                    <div class="six columns substep">
+                        
+                        <pre><code>$$ MODE TUSCRIPT,{}
+MODE DATA                            
+$$ wochentage=*
+Montag
+Dienstag
+Mittwoch
+Donnerstag
+Freitag
+Samstag
+Sonntag
+$$ MODE STATEMENT</code></pre>
+                    </div>
+                </div>
+                <pre class="substep"><code>tagdergeburt=DATE (number,9,10,1963,tagesnummer)    
+wochentag=SELECT (wochentage,#tagdergeburt)</code></pre>   
+                <p class="right x-small"><a href="#toc">toc</a></p>
             </div>
             <div class="step">
                 <dl>
@@ -245,6 +289,7 @@
                     <li>SELECT (variable,#nummer)
                     <li>STOP
                 </ul>
+                <p class="right x-small"><a href="#toc">toc</a></p>
             </div>
             <div class="step" id="skript">
                 <h2 class="red">Sitzung 1: Skript 1/4</h2>
@@ -314,15 +359,17 @@ DATA Sonntag
 wochentag=SELECT (wochentage,#tagdergeburt)
 PRINT "Thomas Kollatz wurde am ",dd,".",mm,". ",yyyy," geboren."
 PRINT "Das war ein ",wochentag</code></pre>
+                <p class="right x-small"><a href="#toc">toc</a></p>
             </div>
             <div class="step">
                 <h2 class="red">Sitzung 1: Skript 4/4</h2>
                 <pre><code>$$ MODE TUSCRIPT,{}
-tag=DATE (today,dd,mm,yyyy,nummerheute)                   
-x = DATE (interval,dd,mm,yyyy,nummerheute)
-PRINT "er ist ",dd," Tage alt"
-PRINT mm, " Monate "
-PRINT yyyy, " Jahre "</code></pre>
+tag=DATE (today,dd,mm,yyyy,nummerheute)   
+gebdd=9,gebmm=10,gebyyyy=1963
+gebtag = DATE (interval,gebdd,gebmm,gebyyyy,nummerheute)
+PRINT "er ist ",gebdd," Tage alt"
+PRINT gebmm, " Monate "
+PRINT gebyyyy, " Jahre "</code></pre>
             </div>
             <div class="step" id="uebung">
                 <h2 class="red">Übungsaufgaben Sitzung #1</h2>
@@ -336,40 +383,7 @@ PRINT yyyy, " Jahre "</code></pre>
                     <dd>02</dd>
                 </dl>
             </div>
-            <div class="step" id="modi">
-                <h2 class="red">MODI</h2>                
-                <div class="row">
-                    <div class="six columns">
-                        
-                        <pre><code>$$ MODE TUSCRIPT,{}
-wochentage=*
-DATA Montag
-DATA Dienstag
-DATA Mittwoch
-DATA Donnerstag
-DATA Freitag
-DATA Samstag
-DATA Sonntag
-</code></pre>
-                    </div>
-                    <div class="six columns substep">
-                        
-                        <pre><code>$$ MODE TUSCRIPT,{}
-MODE DATA                            
-$$ wochentage=*
-Montag
-Dienstag
-Mittwoch
-Donnerstag
-Freitag
-Samstag
-Sonntag
-$$ MODE STATEMENT</code></pre>
-                    </div>
-                </div>
-<pre class="substep"><code>tagdergeburt=DATE (number,9,10,1963,tagesnummer)    
-wochentag=SELECT (wochentage,#tagdergeburt)</code></pre>                
-            </div>
+ <!--            
             <div class="step">
                 <h2 class="red">Datei einrichten</h2>
                 <div class="row">
@@ -389,6 +403,7 @@ ERROR/STOP CREATE ("skripte",ran-o,-std-)</code></pre>
                     </div>
                 </div>
             </div>
+            -->
         </div>
         <!-- jquery -->
         <script src="vendor/jquery/jquery-1.11.0.min.js"></script>
