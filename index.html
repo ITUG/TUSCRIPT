@@ -89,7 +89,7 @@
             <div class="step" id="toc">
                 <div class="row">
                     <div class="six columns">
-                        <dl>
+                        <dl class="small">
                             <dt class="red">01</dt>
                             <dd>
                                 <a href="#desi">*desi</a>
@@ -106,10 +106,14 @@
                             <dd>
                                 <a href="#modi">MODE</a>
                             </dd>
+                            <dt class="red">05</dt>
+                            <dd><a href="#typ">Dateitypen</a></dd>
+                            <dt class="red">06</dt>
+                            <dd><a href="#bedingung">Bedingungen</a></dd>
                         </dl>
                     </div>
                     <div class="six columns">
-                        <dl>
+                        <dl class="medium">
                             <dt class="red">Sitzung 01</dt>
                             <dd>
                                 <a href="#list">Funktionen</a>
@@ -121,7 +125,7 @@
                                 <a href="#uebung">Übungsaufgaben</a>
                             </dd>
                         </dl>
-                        <dl class="down-50">
+                        <dl class="down-50 medium">
                             <dt class="red">Sitzung 02</dt>
                             <dd>
                                 <a href="#list02">Funktionen</a>
@@ -276,6 +280,44 @@ wochentag=SELECT (wochentage,#tagdergeburt)</code></pre>
                     <dd>01</dd>
                 </dl>
             </div>
+            <div class="step" id="typ">
+                <h2 class="red">Dateitypen</h2>
+                    <table>
+                        <tr>
+                            <td><code>ran</code></td>                      
+                            <td>Segmentdateien</td>
+                        </tr>
+                        <tr>
+                            <td><code>seq</code></td>                      
+                            <td>TUSTEPdateien</td>
+                        </tr> 
+                        <tr>
+                            <td><code>fdf</code></td>                      
+                            <td>Fremddatenformate | Nicht-TUSTEPdateien</td>
+                        </tr> 
+                    </table>
+                <p class="right x-small"><a href="#toc">toc</a></p>
+            </div>
+            <div class="step" id="bedingung">
+                <h2 class="red">Bedingungen</h2>
+                <table class="medium">
+                    <tr>
+                        <td><code>.eq.</code> <code>==</code></td>
+                        <td>ist gleich</td>
+                    </tr>
+                    <tr>
+                        <td><code>.ne.</code> <code>!=</code></td>
+                        <td>ist nicht gleich</td>
+                    </tr>
+                    <tr><td><code>.ct.</code></td><td>enthält</td></tr>
+                    <tr><td><code>.nc.</code></td><td>enthält nicht</td></tr>
+                    <tr><td><code>.sw.</code></td><td>beginnt mit </td></tr>
+                    <tr><td><code>.ew.</code></td><td>endet mit </td></tr>
+                    <tr><td><code>.hn.</code></td><td>XML-tag hat den Namen</td></tr>
+                    <tr><td><code>.hn.</code></td><td>XML-tag hat das Attribut</td></tr>
+                </table>
+                <p class="right x-small"><a href="#toc">toc</a></p>
+            </div>
             <div class="step" id="list">
                 <h2 class="red">Sitzung 1: Funktionen</h2>
                 <ul>
@@ -376,6 +418,7 @@ PRINT gebyyyy, " Jahre "</code></pre>
                 <blockquote class="substep">Ermitteln Sie den Wochentag Ihrer Geburt</blockquote>
                 <blockquote class="substep down-50"
                     >Ermitteln Sie wieviele Jahre, Monate, Tage seit Ihrer Geburt vergangen sind</blockquote>
+                <p class="right x-small"><a href="#toc">toc</a></p>
             </div>
             <div class="step">
                 <dl>
@@ -383,8 +426,21 @@ PRINT gebyyyy, " Jahre "</code></pre>
                     <dd>02</dd>
                 </dl>
             </div>
+            <div class="step" id="list02">
+                <h2 class="red">Funktionen</h2>
+                <ul>
+                    <li>CREATE (file,typ,traeger)</li>
+                    <li>OPEN (file,modus,traeger)</li>
+                    <li>CLOSE (file)</li>
+                    <li>ERROR/STOP</li>
+                    <li>LOOP … ENDLOOP</li>
+                    <li>EXTRACT (variable,trenner,anfang,ende)</li>
+                    <li>SELECT CASE DEFAULT ENDSELECT</li>
+                </ul>
+                <p class="right x-small"><a href="#toc">toc</a></p>
+            </div>
  <!--            
-            <div class="step">
+            <div class="step" id="skript02">
                 <h2 class="red">Datei einrichten</h2>
                 <div class="row">
                     <div class="six columns">
@@ -404,6 +460,11 @@ ERROR/STOP CREATE ("skripte",ran-o,-std-)</code></pre>
                 </div>
             </div>
             -->
+            <div class="step" id="uebung02">
+                <h2 class="red">Übungsaufgaben Sitzung #2</h2>
+                <blockquote>Wieviele <code>&lt;date&gt;</code> Elemente gibt es in der Beispieldatei? <br/>Geben Sie diese auf dem Bildschirm oder in eine Datei aus!</blockquote>
+                <p class="right x-small"><a href="#toc">toc</a></p>
+            </div>
         </div>
         <!-- jquery -->
         <script src="vendor/jquery/jquery-1.11.0.min.js"></script>
