@@ -1,0 +1,22 @@
+$$ MODE TUSCRIPT,{}
+-- Die Funktion RANDOM_NUMBERS wählt aus der range 1-10 1 Zahl aus:
+nummer=RANDOM_NUMBERS(1,10,1)
+
+SELECT nummer
+ CASE 1
+  tag="Montag"
+ CASE 2
+  tag="Dienstag"
+ CASE 3
+  tag="Mittwoch"
+ CASE 4
+  tag="Donnerstag"
+ CASE 5
+  tag="Freitag"
+ CASE 6,7
+  tag="Wochenende (Sa-So)"
+ DEFAULT
+  tag="Bitte überprüfen"
+  PRINT/ERROR nummer
+ENDSELECT
+  PRINT "nummer: ",nummer,": ",tag

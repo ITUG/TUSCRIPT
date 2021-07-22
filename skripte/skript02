@@ -1,0 +1,45 @@
+$$ MODE TUSCRIPT,{}
+
+-- Die Variable "heute" wird belegt mit dem Ergebnis der FUNKTION DATE
+-- 4: Datum in der Form Jahr-Monat-Tag yyyy-mm-dd
+heute=DATE (4)
+-- Ausgabe der Wertzuweisung der Variablen heute durch DATE
+PRINT heute
+-- Die Funktion SPLIT teilt den Wert der Variablen "heute" an der durch Trennzeichen definierten Zeichenfolge: -
+-- Das Ergebnis wird den Variablen yyyy mm dd zugewiesen
+x=SPLIT (heute,"|-|",yyyy,mm,dd)
+
+-- Die Makrofunktion DATE mit dem MODUS "number" belegt die Variable
+-- "tagesnummer" mit dem Wochentag (1=Montag bis 7=Sonntag)
+-- Das Tagesdatum wird der Variablen dd zugewiesen
+-- Das Monatsdatum wird der Variablen mm zugewiesen
+-- Das Jahresdatum wird der Variablen yyyy zugewiesen
+-- Die eindeutige Tagesnummer wird der Variablen "nummerheute" zugewiesen
+tagesnummer=DATE (number,dd,mm,yyyy,nummerheute)
+
+--- Die Variablen tagesnummer,dd,mm,yyyy,nummerheute sind frei wählbar!
+
+IF (tagesnummer==1) THEN
+ tag="Montag"
+ELSEIF (tagesnummer==2) THEN
+ tag="Dienstag"
+ELSEIF (tagesnummer==3) THEN
+ tag="Mittwoch"
+ELSEIF (tagesnummer==4) THEN
+ tag="Donnerstag"
+ELSEIF (tagesnummer==5) THEN
+ tag="Freitag"
+ELSEIF (tagesnummer==6) THEN
+ tag="Samstag"
+ELSEIF (tagesnummer==7) THEN
+ tag="Sonntag"
+ELSE
+ tag="Bitte überprüfen"
+ PRINT/ERROR tagesnummer,": ",tag
+--- Bei ungültigen Werten kann mit der Anweisung STOP das Programm abgebrochen werden
+--- Ein Datum zu dem keine "tagesnummer" ermittelt werden kann, ist ungültig, z.b. 31. Februar 2021
+ STOP
+ENDIF
+
+-- Ausgabe mit PRINT (Zeichenfolgen zwischen "" und Wert der Variablen
+PRINT "Heute ist ",tag

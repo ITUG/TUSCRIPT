@@ -1,0 +1,30 @@
+$$ MODE TUSCRIPT,{}
+-- Variable file enthält die Zeichenfolge des Dateinamens
+file="beispiel.xml"
+-- Mit der Anweisung OPEN wird die in der Variable file bezeichnete Datei zum LESEN angemeldet. -std- entspricht TUSTEP_DSK (=Arbeitsverzeichnis)
+ERROR/STOP OPEN (file,READ,-std-)
+-- ACCESS mit dem frei wählbaren Namen "quelle"
+-- READ   - Lesezugriff
+-- FILE   - auf eine Datei
+-- STREAM - portionsweiser Zugriff
+-- UTF8   - Die eingelesenen Daten sind UTF8 codiert
+-- file   - freiwählbarer Variablenname mit dem Dateinamen
+-- s      - freiwählbarer Variablenname mit aktueller Satz/Zeilennummer
+-- a+t+e  - freiwählbare Variablennamen a mit Wert der Anfangskennung
+--                                      t mit Wert des Texts
+--                                      e mit Wert des Endetags
+ACCESS quelle: READ/FILE/STREAM/UTF8 file s,a+t+e
+-- Schleifendurchlauf ANFANG
+ LOOP
+-- Lesen bis zum Ende der im ACCESS quelle definierten Datei
+  READ/EXIT quelle
+-- Bedingung: Wenn Die Anfangskennung den Namen "persName" hat,
+--            dann Ausgabe der VARIABLE t dieser Portion mit TRACE --                                              (alternativ: PRINT)
+   IF (a.hn."persName") TRACE *t
+-- Schleifendurchgang ENDE
+ ENDLOOP
+-- Ende des ACCESS mit dem Namen "Quelle"
+ENDACCESS quelle
+
+-- Abmelden der Datei
+ERROR/STOP CLOSE (file)

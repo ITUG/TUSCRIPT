@@ -1,0 +1,31 @@
+$$ MODE TUSCRIPT,{}
+file="beispiel.xml"
+-- die Funktion FULL_NAME liefert als Funktionswert den Pfad zur Datei
+path2file=FULL_NAME(TUSTEP,file,TUSTEP_DSK)
+status=READ (path2file,content,UTF8)
+IF (status!="OK") STOP
+
+BUILD S_TABLE pnum =*
+DATA |<p><num n="{#}"/>|
+
+-- Eine Zieldatei vom Typ seq wird eingerichtet
+-- D.h. Eine TUSTEPdatei mit Satz/Zeilen/Unterscheidungsnummer
+ziel="neuedatei.tf"
+ERROR/STOP CREATE (ziel,seq-o,TUSTEP_DSK)
+
+-- Die Variable pnr wird mit dem Wert 0 belegt
+pnr=0
+ACCESS q: READ/VARIABLE/STREAM/* content s    ,a+t/pnum+e,typ
+--- Schreibzugriff Datei wird dabei ggf. gelöscht
+ACCESS z: WRITE/FILE/ERASE/STREAM ziel   s.z/u,a+t     +e
+ LOOP
+  READ/EXIT q
+  IF (typ==4) THEN
+   pnr=pnr+1
+   t=SET_ATTRIBUTE ("p","n",pnr)
+   PRINT/COLOR:9b t
+  ENDIF
+  WRITE z
+ ENDLOOP
+ENDACCESS q
+ENDACCESS z

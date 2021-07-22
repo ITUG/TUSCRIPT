@@ -1,0 +1,22 @@
+$$ MODE TUSCRIPT,{}
+geburtstag="1963-10-09"
+x=SPLIT (geburtstag,"|-|",yyyy,mm,dd)
+tagdergeburt=DATE (number,dd,mm,yyyy,nummer)
+
+PRINT tagdergeburt
+
+-- Der Sternvariable "wochentage" sind zeilenweise Werte zugewiesen
+wochentage=*
+DATA Montag
+DATA Dienstag
+DATA Mittwoch
+DATA Donnerstag
+DATA Freitag
+DATA Samstag
+DATA Sonntag
+
+-- Die Funktion SELECT wählt das n-te Element (=Wert der Variablen " "tagdergeburt") aus der Sternvariable "wochentage" und weisst diesen Wert der Variablen "wochentag" zu
+wochentag=SELECT (wochentage,#tagdergeburt)
+
+PRINT "Thomas Kollatz wurde am ",dd,".",mm,". ",yyyy," geboren."
+PRINT "Das war ein ",wochentag

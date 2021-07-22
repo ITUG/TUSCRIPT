@@ -1,0 +1,5 @@
+$$ MODE TUSCRIPT,{}
+-- Die Makrofunktion DATE mit dem Modus "0" gibt den Wochentag aus
+tag=DATE (0)
+
+PRINT "Heute ist ",tag

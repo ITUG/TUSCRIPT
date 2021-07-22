@@ -1,0 +1,18 @@
+$$ MODE TUSCRIPT,{}
+file="beispiel.xml"
+-- die Funktion FULL_NAME liefert als Funktionswert den Pfad zur Datei
+path2file=FULL_NAME(TUSTEP,file,TUSTEP_DSK)
+status=READ (path2file,content,UTF8)
+IF (status!="OK") STOP
+
+ACCESS q: READ/VARIABLE/STREAM content s,a+t+e,typ
+ LOOP
+  READ/EXIT q
+  --- typ
+  --- 1 Anfangskennung, ggf. Text
+  --- 2 Endekennung, ggf. Text
+  --- 3 Anfangs- und Endekennung ggf. Text
+  --- 0 nur Text
+  IF (typ!=1,2,3,0) TRACE *typ,a,t,e
+ ENDLOOP
+ENDACCESS q

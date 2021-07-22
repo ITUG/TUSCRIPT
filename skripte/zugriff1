@@ -1,0 +1,33 @@
+$$ MODE TUSCRIPT,{}
+-- Variable file enthält die Zeichenfolge des Dateinamens
+file="beispiel.xml"
+
+-- Mit der Anweisung OPEN wird die in der Variable file bezeichnete Datei zum LESEN angemeldet. TUSTEP_DSK ist das voreingestellte Arbeitsverzeichnis
+ERROR/STOP OPEN (file,READ,TUSTEP_DSK)
+
+-- ACCESS mit dem frei wählbaren Namen "q"
+-- READ    - Lesezugriff
+-- FILE    - auf eine Datei
+-- RECORDS - zeilenweiser Zugriff
+-- UTF8    - Die eingelesenen Daten sind UTF8 codiert
+-- file    - freiwählbarer Variablenname mit dem Dateinamen
+-- znr     - freiwählbarer Variablenname mit aktueller Zeilennummer
+-- zeile  - freiwählbare Variablennamen mit Inhalt der Zeile
+ACCESS q: READ/FILE/RECORDS/UTF8 file znr,zeile
+
+-- Schleifendurchlauf ANFANG
+LOOP
+
+-- Lesen von Zeile zu Zeile bis zum Ende der im ACCESS q  definierten Datei
+ READ/NEXT/EXIT q
+
+-- Bedingung: Wenn die aktuell eingelesene Zeile die zwischen den Trennzeichen "|" angegebene Zeichenfolge enthält dann Anzeige der aktuellen Werte der Variablen znr und zeile mit TRACE
+ IF (zeile.ct."|Thomas Kollatz|") TRACE *znr,zeile
+
+-- Schleifendurchlauf ENDE
+ENDLOOP
+-- ENDE des Dateizugriffs mit Namen "q"
+ENDACCESS q
+
+-- Abmelden der Datei
+ERROR/STOP CLOSE (file)

@@ -1,0 +1,21 @@
+$$ MODE TUSCRIPT,{}
+file="beispiel.xml"
+-- die Funktion FULL_NAME liefert als Funktionswert den Pfad zur Datei
+path2file=FULL_NAME(TUSTEP,file,TUSTEP_DSK)
+-- READ lädt die im Pfad angegebene Datei auf die Variable content
+-- Der Dateiinhalt wird aus UTF8 in TUSTEPcodierung umgewandelt
+status=READ (path2file,content,UTF8)
+IF (status!="OK") STOP
+
+--- Die Suchtabelle pnum definiert eine Zeichenfolge
+BUILD S_TABLE pnum =*
+DATA |<p><num n="{#}"/>|
+
+--- "Mit der Option * wird der Text nicht zu einer Zeichenfolge zusammengefasst, sondern mit der gleichen Zeileneinteilung wie in der Datei als Sternvariable gespeichert" (Handbuch)
+--- t ist definiert durch die in der Suchtabelle selbstdefinierte Zeichenfolge. Diese kann ein Tag, eine Tagkombination oder eine beliebige Zeichenfolge sein.
+ACCESS q: READ/VARIABLE/STREAM/* content s, a+t/pnum+e, typ
+ LOOP
+  READ/EXIT q
+   IF (typ==4) TRACE *typ,a,t,e
+ ENDLOOP
+ENDACCESS q
