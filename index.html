@@ -137,6 +137,18 @@
                                 <a href="#uebung02">Übungsaufgaben</a>
                             </dd>
                         </dl>
+                        <dl class="down-50 medium">
+                            <dt class="red">Sitzung 03</dt>
+                            <!--<dd>
+                                <a href="#list03">Funktionen</a>
+                            </dd>-->
+                            <dd>
+                                <a href="#skript03">Skript</a>
+                            </dd>
+                            <dd>
+                                <a href="#uebung03">Übungsaufgaben</a>
+                            </dd>
+                        </dl>
                     </div>
                 </div>
             </div>
@@ -231,9 +243,27 @@
                     </tr>
                     <tr>
                         <td>
+                            <code>h,skriptdatei,scriptname,-std-</code>
+                        </td>
+                        <td>holen eines (Skript)segmentes (auch wenn skriptdatei nicht angemeldet ist)</td>
+                    </tr>
+                    <tr>
+                        <td>
                             <code>r,skriptdatei,scriptname</code>
                         </td>
                         <td>retten/speichern eines (Skript)segmentes</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>r,skriptdatei,scriptname,-std-</code>
+                        </td>
+                        <td>retten/speichern eines (Skript)segmentes (auch wenn skriptdatei nicht angemeldet ist)</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <code>l!!</code>
+                        </td>
+                        <td>Inhalt des Editorfensters wird gelöscht, eingestellten Namen für Datei und Segment werden gelöscht</td>
                     </tr>
                 </table>
                 <p class="right x-small"><a href="#toc">toc</a></p>
@@ -345,9 +375,9 @@ variable=CONCAT (var_string,": ",var_sum)</code></pre>
             <div class="step">
                 <h2 class="red">Sitzung 1: Skript 2/4</h2>
                 <div class="row">
-                    <div class="eight columns">
-                        <pre><code>heute=DATE (4)
-x=SPLIT (heute,"|-|",yyyy,mm,dd)
+                    <div class="seven columns">
+                        <pre><code>$$ MODE TUSCRIPT,{}
+
 tagesnummer=DATE (number,dd,mm,yyyy,nummerheute)
                             
 IF (tagesnummer==1) THEN
@@ -372,13 +402,36 @@ ENDIF
 
 PRINT "Heute ist ",tag</code></pre>
                     </div>
-                    <div class="four columns substep">
+                    <div class="five columns substep">
                         <pre><code>$$ MODE TUSCRIPT,{}
 tag=DATE (0)
 
 PRINT "Heute ist ",tag</code></pre>
+                        
+                        <pre class="substep"><code margin="0">$$ MODE TUSCRIPT,{}
+nummer=RANDOM_NUMBERS(1,10,1)
+SELECT nummer
+ CASE 1
+  tag="Montag"
+ CASE 2
+  tag="Dienstag"
+ CASE 3
+  tag="Mittwoch"
+ CASE 4
+  tag="Donnerstag"
+ CASE 5
+  tag="Freitag"
+ CASE 6,7
+  tag="Wochenende (Sa-So)"
+ DEFAULT 
+  tag="Bitte überprüfen"
+  PRINT/ERROR nummer
+ENDSELECT
+PRINT "nummer: ",nummer,": ",tag</code></pre>
                     </div>
                 </div>
+                <p class="right x-small"><a href="#toc">toc</a></p>
+                
             </div>
             <div class="step">
                 <h2 class="red">Sitzung 1: Skript 3/4</h2>
@@ -439,7 +492,7 @@ PRINT gebyyyy, " Jahre "</code></pre>
                 </ul>
                 <p class="right x-small"><a href="#toc">toc</a></p>
             </div>
- <!--            
+           
             <div class="step" id="skript02">
                 <h2 class="red">Datei einrichten</h2>
                 <div class="row">
@@ -458,12 +511,109 @@ PRINT status</code></pre>
 ERROR/STOP CREATE ("skripte",ran-o,-std-)</code></pre>
                     </div>
                 </div>
+                <p class="right x-small"><a href="#toc">toc</a></p>
             </div>
-            -->
+            <div class="step">
+                <h2 class="red">READ/RECORDS</h2>
+                    <pre><code>$$ MODE TUSCRIPT,{}
+file="beispiel.xml"
+
+ERROR/STOP OPEN (file,READ,TUSTEP_DSK)
+
+ACCESS q: READ/FILE/RECORDS/UTF8 file znr,zeile
+
+ LOOP
+
+  READ/NEXT/EXIT q
+
+  IF (zeile.ct."|Thomas Kollatz|") TRACE *znr,zeile
+
+ENDLOOP
+ENDACCESS q
+
+ERROR/STOP CLOSE (file)</code></pre>   
+                <p class="right x-small"><a href="#toc">toc</a></p>
+            </div> 
+            <div class="step">
+                <h2 class="red">READ/STREAM</h2>
+                <pre><code>$$ MODE TUSCRIPT,{}
+file="beispiel.xml"
+ERROR/STOP OPEN (file,READ,-std-)
+ACCESS quelle: READ/FILE/STREAM/UTF8 file s,a+t+e
+ LOOP
+  READ/EXIT quelle
+  IF (a.hn."persName") TRACE *t
+ ENDLOOP
+ENDACCESS quelle
+ERROR/STOP CLOSE (file)</code></pre>
+                <p class="right x-small"><a href="#toc">toc</a></p>
+                
+            </div>
             <div class="step" id="uebung02">
                 <h2 class="red">Übungsaufgaben Sitzung #2</h2>
                 <blockquote>Wieviele <code>&lt;date&gt;</code> Elemente gibt es in der Beispieldatei? <br/>Geben Sie diese auf dem Bildschirm oder in eine Datei aus!</blockquote>
                 <p class="right x-small"><a href="#toc">toc</a></p>
+            </div>
+            <div class="step" id="skript03">
+                <h2 class="red">READ/VARIABLE STREAM typ</h2>
+                <pre><code>$$ MODE TUSCRIPT,{}
+file="beispiel.xml"
+path2file=FULL_NAME(TUSTEP,file,TUSTEP_DSK)
+status=READ (path2file,content,UTF8)
+IF (status!="OK") STOP
+
+ACCESS q: READ/VARIABLE/STREAM content s,a+t+e,typ
+ LOOP
+  READ/EXIT q
+  IF (typ!=1,2,3) TRACE *a,t,e
+ ENDLOOP
+ENDACCESS q</code></pre><p class="right x-small"><a href="#toc">toc</a></p>
+            </div>
+            <div class="step">
+                <h2 class="red">typ 4 == Suchtabelle</h2>
+                <pre><code>$$ MODE TUSCRIPT,{}
+file="beispiel.xml"
+
+path2file=FULL_NAME(TUSTEP,file,TUSTEP_DSK)
+status=READ (path2file,content,UTF8)
+IF (status!="OK") STOP
+
+BUILD S_TABLE pnum =*
+DATA |&lt;p&gt;&lt;num n="{#}"/&gt;|
+
+ACCESS q: READ/VARIABLE/STREAM/* content s    ,a+t/pnum+e,typ
+ LOOP
+  READ/EXIT q
+   IF (typ==4) TRACE *typ,a,t,e
+ ENDLOOP
+ENDACCESS q</code></pre><p class="right x-small"><a href="#toc">toc</a></p>
+            </div>
+            <div class="step">
+                <h2 class="red">WRITE/FILE/ERASE/STREAM</h2>
+                <pre><code>$$ MODE TUSCRIPT,{}
+file="beispiel.xml"
+path2file=FULL_NAME(TUSTEP,file,TUSTEP_DSK)
+status=READ (path2file,content,UTF8)
+IF (status!="OK") STOP
+BUILD S_TABLE pnum =*
+DATA |&lt;p&gt;&lt;num n="{#}"/&gt;|
+
+ziel="neuedatei.tf"
+ERROR/STOP CREATE (ziel,seq-o,TUSTEP_DSK)
+pnr=0
+ACCESS q: READ/VARIABLE/STREAM/* content s    ,a+t/pnum+e,typ
+ACCESS z: WRITE/FILE/ERASE/STREAM ziel   s.z/u,a+t     +e
+ LOOP
+  READ/EXIT q
+  IF (typ==4) THEN
+   pnr=pnr+1
+   t=SET_ATTRIBUTE ("p","n",pnr)
+   PRINT/COLOR:9b t
+  ENDIF
+  WRITE z
+ ENDLOOP
+ENDACCESS q
+ENDACCESS z</code></pre><p class="right x-small"><a href="#toc">toc</a></p>
             </div>
         </div>
         <!-- jquery -->
