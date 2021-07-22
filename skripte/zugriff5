@@ -16,7 +16,7 @@ ERROR/STOP CREATE (ziel,seq-o,TUSTEP_DSK)
 -- Die Variable pnr wird mit dem Wert 0 belegt
 pnr=0
 ACCESS q: READ/VARIABLE/STREAM/* content s    ,a+t/pnum+e,typ
---- Schreibzugriff Datei wird dabei ggf. gelöscht
+--- Schreibzugriff Datei wird dabei ggf. geloescht
 ACCESS z: WRITE/FILE/ERASE/STREAM ziel   s.z/u,a+t     +e
  LOOP
   READ/EXIT q

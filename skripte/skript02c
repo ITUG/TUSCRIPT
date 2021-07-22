@@ -1,5 +1,5 @@
 $$ MODE TUSCRIPT,{}
--- Die Funktion RANDOM_NUMBERS wählt aus der range 1-10 1 Zahl aus:
+-- Die Funktion RANDOM_NUMBERS waehlt aus der range 1-10 1 Zahl aus:
 nummer=RANDOM_NUMBERS(1,10,1)
 
 SELECT nummer
@@ -16,7 +16,7 @@ SELECT nummer
  CASE 6,7
   tag="Wochenende (Sa-So)"
  DEFAULT
-  tag="Bitte überprüfen"
+  tag="Bitte ueberpruefen"
   PRINT/ERROR nummer
 ENDSELECT
   PRINT "nummer: ",nummer,": ",tag

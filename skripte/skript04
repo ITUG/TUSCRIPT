@@ -7,7 +7,7 @@ tag=DATE (today,dd,mm,yyyy,nummerheute)
 
 -- Belegung der Variablen gebdd,gebmm,gebyyyy
 gebdd=9,gebmm=10,gebyyyy=1963
--- gebtag enthält die nummerische Entsprechung des Wochentags 9.10.63
+-- gebtag enthaelt die nummerische Entsprechung des Wochentags 9.10.63
 -- MODUS "interval" weist den Variablen gebdd,gebmm,gebyyyy
 --        Tage, Monate, Jahre seit der Tagesnummer "nummerheute" zu
 gebtag = DATE (interval,gebdd,gebmm,gebyyyy,nummerheute)

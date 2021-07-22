@@ -15,7 +15,7 @@ DATA Freitag
 DATA Samstag
 DATA Sonntag
 
--- Die Funktion SELECT wählt das n-te Element (=Wert der Variablen " "tagdergeburt") aus der Sternvariable "wochentage" und weisst diesen Wert der Variablen "wochentag" zu
+-- Die Funktion SELECT waehlt das n-te Element (=Wert der Variablen " "tagdergeburt") aus der Sternvariable "wochentage" und weisst diesen Wert der Variablen "wochentag" zu
 wochentag=SELECT (wochentage,#tagdergeburt)
 
 PRINT "Thomas Kollatz wurde am ",dd,".",mm,". ",yyyy," geboren."

@@ -2,7 +2,7 @@ $$ MODE TUSCRIPT,{}
 file="beispiel.xml"
 -- die Funktion FULL_NAME liefert als Funktionswert den Pfad zur Datei
 path2file=FULL_NAME(TUSTEP,file,TUSTEP_DSK)
--- READ lädt die im Pfad angegebene Datei auf die Variable content
+-- READ laedt die im Pfad angegebene Datei auf die Variable content
 -- Der Dateiinhalt wird aus UTF8 in TUSTEPcodierung umgewandelt
 status=READ (path2file,content,UTF8)
 IF (status!="OK") STOP

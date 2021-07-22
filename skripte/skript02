@@ -17,7 +17,7 @@ x=SPLIT (heute,"|-|",yyyy,mm,dd)
 -- Die eindeutige Tagesnummer wird der Variablen "nummerheute" zugewiesen
 tagesnummer=DATE (number,dd,mm,yyyy,nummerheute)
 
---- Die Variablen tagesnummer,dd,mm,yyyy,nummerheute sind frei wählbar!
+--- Die Variablen tagesnummer,dd,mm,yyyy,nummerheute sind frei waehlbar!
 
 IF (tagesnummer==1) THEN
  tag="Montag"
@@ -34,10 +34,10 @@ ELSEIF (tagesnummer==6) THEN
 ELSEIF (tagesnummer==7) THEN
  tag="Sonntag"
 ELSE
- tag="Bitte überprüfen"
+ tag="Bitte ueberpruefen"
  PRINT/ERROR tagesnummer,": ",tag
---- Bei ungültigen Werten kann mit der Anweisung STOP das Programm abgebrochen werden
---- Ein Datum zu dem keine "tagesnummer" ermittelt werden kann, ist ungültig, z.b. 31. Februar 2021
+--- Bei ungueltigen Werten kann mit der Anweisung STOP das Programm abgebrochen werden
+--- Ein Datum zu dem keine "tagesnummer" ermittelt werden kann, ist ungueltig, z.b. 31. Februar 2021
  STOP
 ENDIF
 

@@ -8,8 +8,8 @@ SET var_string="Ich bin eine erste Variable"
 -- Der Variablen "var_digit" wird eine Zahl zugeordnet
 var_digit=3
 
--- Die Variable "var_sum" enthält den Wert der Addition
+-- Die Variable "var_sum" enthaelt den Wert der Addition
 var_sum=var_digit+2
 
--- Die Variable "variable" enthält die Wertzuweisung durch die Funktion CONCAT
+-- Die Variable "variable" enthaelt die Wertzuweisung durch die Funktion CONCAT
 variable=CONCAT (var_string,": ",var_sum)
